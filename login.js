@@ -1,26 +1,26 @@
-// This function will be called when the form is submitted
+// Αυτή η συνάρτηση καλείται όταν υποβάλλεται η φόρμα
 function validateForm(event) {
-    // Prevent the form from submitting immediately
+    // Αποτρέπουμε την αυτόματη υποβολή της φόρμας
     event.preventDefault();
 
-    // Get the values of the username and password fields
+    // Λαμβάνουμε τις τιμές των πεδίων username και password
     let username = document.getElementById('fname').value;
     let password = document.getElementById('pass').value;
 
-    // Check if username and password are empty
+    // Έλεγχος αν το username ή το password είναι κενά
     if (username === "" || password === "") {
-        alert("Username and Password cannot be empty");
-        return false; // Do not submit the form
+        alert("Το Όνομα Χρήστη και ο Κωδικός δεν μπορούν να είναι κενά");
+        return false; // Δεν υποβάλλουμε τη φόρμα
     }
 
-    // Example: Check if username and password are correct (for demo purposes)
+    // Παράδειγμα: Έλεγχος αν το username και το password είναι σωστά (για δοκιμαστικούς σκοπούς)
     if (username === "testuser" && password === "testpass") {
-        alert("Login successful");
-        // Submit the form or redirect the user to another page
-        // Uncomment the next line to redirect the user after successful login
+        alert("Επιτυχής σύνδεση");
+        // Υποβάλλουμε τη φόρμα ή ανακατευθύνουμε τον χρήστη σε άλλη σελίδα
+        // Αποσχολιάστε την παρακάτω γραμμή για ανακατεύθυνση μετά την επιτυχή σύνδεση
         // window.location.href = "dashboard.html";
     } else {
-        alert("Invalid Username or Password");
-        return false; // Do not submit the form
+        alert("Λάθος Όνομα Χρήστη ή Κωδικός");
+        return false; // Δεν υποβάλλουμε τη φόρμα
     }
 }
