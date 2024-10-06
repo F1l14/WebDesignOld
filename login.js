@@ -16,6 +16,7 @@ function validateForm(event) {
     // Παράδειγμα: Έλεγχος αν το username και το password είναι σωστά (για δοκιμαστικούς σκοπούς)
     if (username === "testuser" && password === "testpass") {
         alert("Επιτυχής σύνδεση");
+        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" //surprise video
         // Υποβάλλουμε τη φόρμα ή ανακατευθύνουμε τον χρήστη σε άλλη σελίδα
         // Αποσχολιάστε την παρακάτω γραμμή για ανακατεύθυνση μετά την επιτυχή σύνδεση
         // window.location.href = "dashboard.html";
