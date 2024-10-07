@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,7 @@
     <br>
 </head>
 <body>
-    <a href="index.html" target="_self">
+    <a href="index.php" target="_self">
         Home
     </a>
     <br>
@@ -31,11 +34,6 @@
        
     </form>
 
-    <br>
-    <button>
-        Reload
-    </button>
-    <br>
 
 
 
@@ -52,10 +50,18 @@
         
         //checking if login button is pressed before showing error or ok
         if(isset($_POST["login"])){
-            if(empty($usr)||empty($pass)){
+            if(!empty($usr) && !empty($pass)){
+                $_SESSION["username"] = $usr;
+                $_SESSION["password"] = $pass;
+
+                echo  $_SESSION["username"];
+                echo $_SESSION["password"];
+                //redirecting after opening session
+                header("Location: homepage.php");
+            }
+            else {
                 echo "Missing credentials";
             }
-            else echo "ok";
         }
     }
 ?>

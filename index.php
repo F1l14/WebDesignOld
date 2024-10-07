@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+?><!DOCTYPE html>
 <html>
     <head>
         <title>Testing Title</title>
@@ -15,8 +17,15 @@
             Google
         </a>
         <br>
-        <a href="login.html" target=_self title="Takes you to login page">
-            Login
+        <a href="login.php" target=_self title="Takes you to login page">
+            Login<br>
         </a>
     </body>
 </html>
+
+<?php
+    //if session exists redirect to homepage
+    if(isset($_SESSION["username"]) && isset($_SESSION["password"])){
+        header("Location:homepage.php");
+    }
+?>
