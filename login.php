@@ -1,5 +1,6 @@
 <?php
-session_start();
+    session_start();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +19,8 @@ session_start();
     </a>
     <br>
     
-
-    <form action="login.php" method="POST">
+    <!--php section gets the current page name with a filter for special characters-->
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
 
             <label for="username">Username<br></label>
             <input type="text" name="username" placeholder="Test Name" maxlength="12">
@@ -51,13 +52,36 @@ session_start();
         //checking if login button is pressed before showing error or ok
         if(isset($_POST["login"])){
             if(!empty($usr) && !empty($pass)){
-                $_SESSION["username"] = $usr;
-                $_SESSION["password"] = $pass;
+                $result="";
+                include("dbconn.php");
+                
+                
+                $compare_pass = $conn->prepare("SELECT password FROM users WHERE username = ?");
+                $compare_pass->bind_param("s", $usr);
+                try{
+                    $compare_pass->execute();
+                    $result= $compare_pass->get_result();
+                    
+                }catch (mysqli_sql_exception){
+                    echo "SQL error";
+                }
 
-                echo  $_SESSION["username"];
-                echo $_SESSION["password"];
+                if(mysqli_num_rows($result)>0){
+                    if(password_verify($pass, mysqli_fetch_assoc($result)["password"])){
+                        echo "correct password" . "<br>";
+                        $_SESSION["username"] = $usr;
+                        // hashing the password with bcrypt and storing it in session
+                        $_SESSION["password"] = password_hash($pass, PASSWORD_DEFAULT);
+                    }else{
+                        echo "Wrong password" . "<br>";
+                    }
+                }else{
+                    echo "This user does not exist";
+                }
+
+                mysqli_close($conn);
                 //redirecting after opening session
-                header("Location: homepage.php");
+               // header("Location: homepage.php");
             }
             else {
                 echo "Missing credentials";

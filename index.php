@@ -3,11 +3,11 @@
 ?><!DOCTYPE html>
 <html>
     <head>
-        <title>Testing Title</title>
+        <title>NDP</title>
     </head>
     <body>
         <!--Comment-->
-        <h1>My Website</h1>
+        <h1>Natural Disasters Panel</h1>
         <hr>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam, iure laboriosam veritatis debitis tenetur ab dolore suscipit. Iure enim dicta veritatis obcaecati aspernatur officia voluptatum labore vero maxime temporibus.</p>
         Body text

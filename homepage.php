@@ -13,7 +13,7 @@ This is the Homepage
 <hr>
 </head>
 <body>
-    <form action="homepage.php" method="post">
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
         <input type="submit" name="logout" value="Logout">
     </form>
 </body>
