@@ -4,6 +4,8 @@
 <html>
     <head>
         <title>NDP</title>
+        <?php include("header.html")?>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <!--Comment-->
