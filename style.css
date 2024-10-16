@@ -1,8 +1,56 @@
-body{
-    font-size: 19px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+h1{
+    color:red;
+   
+}
+
+body{
+    font-size: 1.5rem;
+    line-height: 1.4;
+    background-color: #26282a;
+    color:lightgray;
+    
+    margin-top: 1.5em;
+    margin: 1.5 0.5 em;
+    padding: 15% 25%;
+
+    text-align: center;
+}
+
+input, button{
+    font: inherit;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+
+header {
+    font-size: 2rem;
+    font-family:monospace;
+    font-weight: bold;
+    background-color: #3b7ab9 ;
+    padding: 15%, 15%;
+    border-radius: 0.5em;
+    margin: 1em;
+}
+
 
 p{
-    color:purple;
+    color:green;
+    text-indent: 2em;
+    text-align:justify;
 }
 
+font button{
+    color:blueviolet;
+    font-style:italic;
+}
+
+img {
+    border-radius: 1em;
+}

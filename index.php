@@ -3,13 +3,17 @@
 ?><!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>NDP</title>
         <?php include("header.html")?>
-        <link rel="stylesheet" href="style.css">
     </head>
+    <header>
+    <h1>Natural Disasters Panel</h1>
+    Test
+    </header>
     <body>
         <!--Comment-->
-        <h1>Natural Disasters Panel</h1>
+        
         <hr>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam, iure laboriosam veritatis debitis tenetur ab dolore suscipit. Iure enim dicta veritatis obcaecati aspernatur officia voluptatum labore vero maxime temporibus.</p>
         Body text
