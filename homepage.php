@@ -41,6 +41,11 @@ This is the Homepage
             <li>Lilly</li>
         </ul>
     </article>
+
+    <footer>
+        <br>
+        <?php include("footer.html")?>
+    </footer>
 </body>
 </html>
 <?php
