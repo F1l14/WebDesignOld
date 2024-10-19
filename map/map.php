@@ -20,7 +20,7 @@
     <div id="map">
         <!-- Κώδικας για τον διαδραστικό χάρτη -->
     </div>
-    
+
     <script>
     // Φόρτωση markers από τον server
     function loadMarkers() {
@@ -53,6 +53,9 @@
 
     // Κλήση της λειτουργίας κατά την έναρξη
     loadMarkers();
+
+    // Αυτόματη ανανέωση δεδομένων κάθε 30 δευτερόλεπτα
+    setInterval(loadMarkers, 30000);
 </script>
 
 </body>
