@@ -47,6 +47,24 @@
                         .addTo(map)
                         .bindPopup(`<b>${offer.name}</b><br>Τηλέφωνο: ${offer.phone}<br>Ποσότητα: ${offer.quantity}`);
                 });
+
+                // Προσθήκη γραμμών σύνδεσης για ενεργά tasks
+                function drawTaskLines(vehicle, tasks) {
+                    tasks.forEach(task => {
+                        var line = L.polyline([
+                            [vehicle.lat, vehicle.lng],
+                            [task.lat, task.lng]
+                        ], {color: 'purple', weight: 2}).addTo(map);
+                    });
+                }
+
+                // Παράδειγμα κλήσης της συνάρτησης μετά την ανάκτηση δεδομένων
+                data.vehicles.forEach(vehicle => {
+                    var activeTasks = data.requests.filter(req => req.assigned_vehicle === vehicle.username)
+                        .concat(data.offers.filter(off => off.assigned_vehicle === vehicle.username));
+                    drawTaskLines(vehicle, activeTasks);
+                });
+
             })
             .catch(error => console.log('Error loading markers:', error));
     }
