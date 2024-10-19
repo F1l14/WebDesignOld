@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#map {
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.popup-content {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.marker-vehicle {
+    background-color: blue;
+}
+
+.marker-request {
+    background-color: red;
+}
+
+.marker-offer {
+    background-color: green;
+}
