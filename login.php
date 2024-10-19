@@ -73,6 +73,7 @@
                         $_SESSION["username"] = $usr;
                         // hashing the password with bcrypt and storing it in session
                         $_SESSION["password"] = password_hash($pass, PASSWORD_DEFAULT);
+                        header("Location: map.php");
                     }else{
                         echo "Wrong password" . "<br>";
                     }
