@@ -14,6 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Map</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Χρήση βιβλιοθήκης όπως το Toastr για ειδοποιήσεις σε αλλαγές κατάστασης (π.χ., νέο αίτημα, αλλαγή θέσης βάσης κλπ)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 </head>
 <body>
     <h1>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?></h1>
@@ -74,6 +79,19 @@
 
     // Αυτόματη ανανέωση δεδομένων κάθε 30 δευτερόλεπτα
     setInterval(loadMarkers, 30000);
+</script>
+
+<script>
+    function showNotification(message, type) {
+        toastr.options = {
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+        toastr[type](message);
+    }
+
+    // Παράδειγμα χρήσης σε περίπτωση επιτυχούς ενημέρωσης θέσης βάσης
+    showNotification("Η νέα θέση της βάσης επικυρώθηκε!", "success");
 </script>
 
 </body>
