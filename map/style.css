@@ -25,3 +25,14 @@ body {
 .marker-offer {
     background-color: green;
 }
+
+/*Responsive design για κινητές συσκευές*/
+@media (max-width: 768px) {
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+    .popup-content {
+        font-size: 12px;
+    }
+}
