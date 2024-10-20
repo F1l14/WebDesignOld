@@ -7,26 +7,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-    <a href="https://www.youtube.com">
-        <img src="imgs/ceid.jpg" height="100" title="Ceid logo">
-    </a>
-    <br>
+    <title>Login</title>
 </head>
 <body>
-    <a href="index.php" target="_self">
-        Home
-    </a>
-    <br>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-        <label for="username">Username<br></label>
-        <input type="text" name="username" placeholder="Test Name" maxlength="12">
+    <div class="container">
+        <div class="logo">
+            <a href="https://www.youtube.com">
+                <img src="imgs/ceid.jpg" height="100" title="Ceid logo">
+            </a>
+        </div>
         <br>
-        <label for="pass">Password<br></label>
-        <input type="password" name="pass" placeholder="test" maxlength="12">
-        <input type="reset" value="Clear">
-        <input type="submit" name="login" value="Login">
-    </form>
+        <a href="index.php" target="_self" class="home-link">Home</a>
+        <br>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login-form">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter Username" maxlength="12" required>
+            <br>
+            <label for="pass">Password</label>
+            <input type="password" name="pass" placeholder="Enter Password" maxlength="12" required>
+            <br>
+            <input type="submit" name="login" value="Login" class="btn-login">
+            <input type="reset" value="Clear" class="btn-clear">
+        </form>
+    </div>
 </body>
 </html>
 
@@ -44,26 +47,28 @@
                 try {
                     $compare_pass->execute();
                     $result = $compare_pass->get_result();
-                } catch (mysqli_sql_exception) {
-                    echo "SQL error";
+                } catch (mysqli_sql_exception $e) {
+                    echo "SQL error: " . $e->getMessage();
+                    exit;
                 }
 
-                if(mysqli_num_rows($result) > 0){
-                    if(password_verify($pass, mysqli_fetch_assoc($result)["password"])){
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    if (password_verify($pass, $row["password"])) {
                         $_SESSION["username"] = $usr;
-                        $_SESSION["password"] = password_hash($pass, PASSWORD_DEFAULT);
-                        header("Location:map/map.php");
+                        header("Location: ./map/map.php");
                         exit; // Σταματά την εκτέλεση για να λειτουργήσει η ανακατεύθυνση
                     } else {
                         echo "Wrong password<br>";
                     }
                 } else {
-                    echo "This user does not exist";
+                    echo "This user does not exist<br>";
                 }
 
-                mysqli_close($conn);
+                $compare_pass->close();
+                $conn->close();
             } else {
-                echo "Missing credentials";
+                echo "Missing credentials<br>";
             }
         }
     }

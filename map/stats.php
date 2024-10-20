@@ -1,5 +1,5 @@
-//stats.php
-//Χρήση βιβλιοθήκης όπως το Chart.js για καταγραφή στατιστικών.
+<!-- //stats.php -->
+<!-- //Χρήση βιβλιοθήκης όπως το Chart.js για καταγραφή στατιστικών. -->
 
 <canvas id="serviceStats" width="400" height="200"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

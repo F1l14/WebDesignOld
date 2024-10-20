@@ -40,7 +40,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `reg_date`) VALUES
 (1, 'Admin', '$2y$10$NR.Np0VlxL.c.X0pGsAPx.h92wMIy4VYM87KwoXlIvHO5xtoeipu.', '2024-10-08 13:03:12');
-
+-- Αυτό είναι το σωστό hash για κωδικό "root" $2y$10$.y7ognfK6piQjPFu4q9yae1PdZErQoTVQTVOYhq0P.NXJzGsyJXDq
 --
 -- Indexes for dumped tables
 --

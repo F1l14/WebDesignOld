@@ -1,9 +1,10 @@
 <?php
     session_start();
+    
     // Έλεγχος αν ο χρήστης είναι συνδεδεμένος
     if (!isset($_SESSION["username"])) {
         // Ανακατεύθυνση στο login αν δεν είναι συνδεδεμένος
-        header("Location: login.php");
+        header("Location: ../login.php");
         exit();
     }
 ?>

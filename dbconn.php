@@ -1,17 +1,14 @@
 <?php
     $db_server = "localhost";
     $db_user = "root";
-    $db_pass = "";
-    $db_name = "ndp";
-    
-    // Try to establish a connection
-    $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-    
-    // Check if the connection was successful
-    if ($conn) {
-        echo "Connection to Database Successful" . "<br>";
+    $db_pass = "superuser";
+    $db_name = "web";
+
+    $conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
+
+    if ($conn->connect_error) {
+        die("Connection to Database Failed: " . $conn->connect_error);
     } else {
-        echo "Connection to Database Failed: " . mysqli_connect_error() . "<br>";
+        echo "Connection to Database Successful<br>"; // Προσωρινή προσθήκη για debugging
     }
 ?>
-    

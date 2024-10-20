@@ -1,5 +1,5 @@
-// announcements.php
-// Φόρμα και διαχείριση ανακοινώσεων.
+<!-- announcements.php -->
+<!-- Φόρμα και διαχείριση ανακοινώσεων. -->
 
 <form action="create_announcement.php" method="POST">
     <label for="title">Τίτλος Ανακοίνωσης:</label>
